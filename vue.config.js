@@ -43,39 +43,39 @@ module.exports = {
     config.module
       .rule('images')
       .test(/\.(png|jpe?g|gif|svg)(\?.*)?$/)
-    // if (isProd) {
-    let externals = {
-      vue: 'Vue',
-      axios: 'axios',
-      'element-ui': 'ELEMENT',
-      'vue-router': 'VueRouter',
-      vuex: 'Vuex'
-    }
-    config.externals(externals)
-    const cdn = {
-      css: [
+    if (isProd) {
+      let externals = {
+        vue: 'Vue',
+        axios: 'axios',
+        'element-ui': 'ELEMENT',
+        'vue-router': 'VueRouter',
+        vuex: 'Vuex'
+      }
+      config.externals(externals)
+      const cdn = {
+        css: [
         // element-ui
-        '//unpkg.com/element-ui/lib/theme-chalk/index.css'
-      ],
-      js: [
+          '//unpkg.com/element-ui/lib/theme-chalk/index.css'
+        ],
+        js: [
         // vue
-        '//cdn.staticfile.org/vue/2.6.10/vue.js',
-        // vue-router
-        '//unpkg.com/vue-router@2.0.0/dist/vue-router.js',
-        // vuex
-        '//cdn.staticfile.org/vuex/3.1.0/vuex.js',
-        // axios
-        '//unpkg.com/axios/dist/axios.js',
-        // element-ui js
-        '//unpkg.com/element-ui/lib/index.js'
-      ]
+          '//cdn.staticfile.org/vue/2.6.10/vue.js',
+          // vue-router
+          '//unpkg.com/vue-router@2.0.0/dist/vue-router.js',
+          // vuex
+          '//cdn.staticfile.org/vuex/3.1.0/vuex.js',
+          // axios
+          '//unpkg.com/axios/dist/axios.js',
+          // element-ui js
+          '//unpkg.com/element-ui/lib/index.js'
+        ]
+      }
+      config.plugin('html')
+        .tap(args => {
+          args[0].cdn = cdn
+          return args
+        })
     }
-    config.plugin('html')
-      .tap(args => {
-        args[0].cdn = cdn
-        return args
-      })
-    // }
   },
   css: {
     loaderOptions: {

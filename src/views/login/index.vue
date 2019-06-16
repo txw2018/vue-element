@@ -20,6 +20,7 @@
 
 <script>
 import { setTimeout } from 'timers'
+import { sessionStorage } from '~utils'
 export default {
   name: 'login-admin',
   data () {
@@ -52,16 +53,24 @@ export default {
     login (formName) {
       this.$refs[formName].validate((valid) => {
         if (valid) {
+          sessionStorage.set('user', this.form.account)
           this.loginWord = '登陆中'
           this.loading = true
           setTimeout(() => {
             this.$router.push('/')
-          }, 5000)
+          }, 3000)
         } else {
           console.log('error submit!!')
           return false
         }
       })
+    }
+  },
+  beforeRouteEnter (to, from, next) {
+    if (sessionStorage.get('user')) {
+      next('/')
+    } else {
+      next()
     }
   }
 }
