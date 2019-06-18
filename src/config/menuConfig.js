@@ -35,6 +35,11 @@ export default [
         name: '展示全局组件',
         path: '/components/global-comp',
         icon: 'global'
+      },
+      {
+        name: 'show-table',
+        path: '/components/gshow-table',
+        icon: 'global'
       }
     ]
   }
