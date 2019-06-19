@@ -3,8 +3,9 @@
     :data="tableData"
     v-bind="$attrs"
     v-on="$listeners"
+    :height="height"
     style="width: 100%"
-    max-height="250">
+    >
     <template  v-for="(column,index) in columns">
       <!-- 多选框 -->
       <el-table-column
@@ -23,7 +24,7 @@
       <!-- 具体内容 -->
       <el-table-column
         :key="index"
-        v-if="column.type==='index'"
+        v-if="column.checked"
         :show-overflow-tooltip="true"
         :align="algin"
         :prop="column.prop"
@@ -88,6 +89,11 @@ export default {
       type: Array,
       defaul: () => []
     },
+    height: {
+      type: String,
+      default: '75vh'
+
+    },
     /**
      * @description 对齐方式 left/center/right
      */
@@ -105,6 +111,9 @@ export default {
     return {
 
     }
+  },
+  created () {
+    console.log(this.columns)
   }
 }
 </script>

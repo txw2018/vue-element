@@ -4,27 +4,37 @@ export default [
   },
   {
     prop: 'date',
-    label: '日期'
+    label: '日期',
+    checked: true
   },
   {
     prop: 'name',
-    label: '名字'
-  },
-  {
-    prop: 'province',
-    label: '省'
+    label: '名字',
+    checked: true
 
   },
   {
+    prop: 'province',
+    label: '省',
+    checked: true
+  },
+  {
     prop: 'address',
-    label: '地址'
+    label: '地址',
+    checked: true
   },
   {
     prop: 'zip',
-    label: '大小'
+    label: '大小',
+    checked: true
+
   },
   {
     type: 'operate',
-    fixed: 'right'
+    fixed: 'right',
+    operates: [
+      { name: '修改' },
+      { name: '删除' }
+    ]
   }
 ]

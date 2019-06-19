@@ -74,7 +74,9 @@ export default {
 
   computed: {},
 
-  mounted () {},
+  mounted () {
+    console.log(columns)
+  },
 
   methods: {}
 }
