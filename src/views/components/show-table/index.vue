@@ -5,7 +5,6 @@
     :tableData="tableData"
     :columns="columns"
    >
-
    </xx-table>
   </el-card>
 </template>

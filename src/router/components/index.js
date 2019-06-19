@@ -17,7 +17,12 @@ export default [
       {
         path: '/components/global-comp',
         name: 'global-comp',
-        component: () => import(/* webpackChunkName: "lobal-comp" */ '~views/components/global-comp/index.vue')
+        component: () => import(/* webpackChunkName: "global-comp" */ '~views/components/global-comp/index.vue')
+      },
+      {
+        path: '/components/show-table',
+        name: 'show-table',
+        component: () => import(/* webpackChunkName: "show-table" */ '~views/components/show-table/index.vue')
       }
     ]
   }

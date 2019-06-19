@@ -38,7 +38,7 @@ export default [
       },
       {
         name: 'show-table',
-        path: '/components/gshow-table',
+        path: '/components/show-table',
         icon: 'global'
       }
     ]
