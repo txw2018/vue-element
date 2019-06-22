@@ -33,3 +33,42 @@ export class sessionStorage {
     return window.sessionStorage.getItem(key)
   }
 }
+
+/**
+ * @description 用于回到页面顶部
+ * @author txw
+ * @param {elem} 最外层的dom，优先建议使用ref获取节点
+ * @param {speed} 速度
+ * @date 2019-06-21
+ * @export
+ */
+export const scrollTop = (elem, speed = 5) => {
+  let oDom = elem.$el || elem // 兼容vue组件跟html标签
+  let timer = null
+  timer = requestAnimationFrame(function fn () {
+    let oTop = oDom.scrollTop
+    if (oTop > 0) {
+      oDom.scrollTop = oTop - (oTop / speed)
+      timer = requestAnimationFrame(fn)
+    } else {
+      cancelAnimationFrame(timer)
+    }
+  })
+}
+
+/**
+ * @description 用于获取节点的样式
+ * @author txw
+ * @param {elem} 要获取样式的节点，优先建议使用ref获取节点
+ * @param {prop} 要获取的属性
+ * @date 2019-06-21
+ * @export
+ * @returns 样式值
+ */
+export const getStyle = (elem, prop) => {
+  if (window.getComputedStyle) {
+    return window.getComputedStyle(elem, null)[prop]
+  } else {
+    return elem.currentStyle[prop]
+  }
+}
