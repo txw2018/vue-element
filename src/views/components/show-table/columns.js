@@ -1,4 +1,4 @@
-export default [
+let column = [
   {
     type: 'selection'
   },
@@ -31,10 +31,18 @@ export default [
   },
   {
     type: 'operate',
+    label: '操作',
     fixed: 'right',
     operates: [
       { name: '修改' },
       { name: '删除' }
-    ]
+    ],
+    slotHeader: 'operate-header'
   }
 ]
+const _column = JSON.parse(localStorage.getItem('columns'))
+if (_column) {
+  column = _column
+}
+
+export default column
