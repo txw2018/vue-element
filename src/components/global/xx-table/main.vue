@@ -14,6 +14,7 @@
             :key="index"
             v-if="column.type==='selection'"
             type="selection"
+            :selectable="selectable"
             width="150">
           </el-table-column>
           <!-- 序号 -->
@@ -31,12 +32,13 @@
             :align="algin"
             :prop="column.prop"
             :label="column.label"
+            :sortable="column.sortable"
             :width="column.width || ''">
             <template slot-scope="scope">
               <!-- 自定义表头 -->
               <template v-if="column.slotHeader" slot="header">
                   <slot :name="column.slotHeader"></slot>
-                </template>
+              </template>
               <!-- 如果slot有值的时候 那么当前格可以不显示，可以选择显示自定义的slot-->
               <label v-if="!column.slot">
                 <span>
@@ -153,6 +155,14 @@ export default {
     handleOperateClick (item, row) {
       console.log(item)
       this.$emit('operate-click', item.emitKey, row)
+    },
+    /**
+     * @description 是否可选
+     */
+    selectable (row, index) {
+      // 默认是可选的
+      // 如果将 $selectable 属性设置为了 false 就不可选
+      return row.$selectable !== false
     }
 
   },

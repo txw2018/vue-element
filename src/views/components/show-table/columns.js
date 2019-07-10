@@ -26,8 +26,8 @@ let column = [
   {
     prop: 'zip',
     label: '大小',
-    checked: true
-
+    checked: true,
+    sortable: true
   },
   {
     type: 'operate',
