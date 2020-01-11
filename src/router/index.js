@@ -2,10 +2,10 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import { sessionStorage } from '~utils'
 Vue.use(Router)
-let routes = []
+export let routes = []
 const routerContext = require.context('./', true, /index\.js$/)
 routerContext.keys().forEach(route => {
-  if (route.startsWith('./index')) return
+  if (route.startsWith('./index')) return // 排除根目录index.js
   const routerMoudle = routerContext(route).default || routerContext(route)
   routes = [...routes, ...routerMoudle]
 })
@@ -17,7 +17,7 @@ export default new Router({
     {
       path: '/',
       name: 'home',
-      component: () => import(/* webpackChunkName: "home" */ '~views/Home.vue'),
+      component: () => import(/* webpackChunkName: "home" */ '~views/Main.vue'),
       children: routes,
       beforeEnter: (to, from, next) => {
         if (sessionStorage.get('user')) {
