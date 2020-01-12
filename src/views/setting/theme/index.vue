@@ -32,7 +32,9 @@ export default {
 
   },
 
-  mounted () {},
+  mounted () {
+    console.log(this)
+  },
 
   methods: {
     ...mapActions(['THEME']),
