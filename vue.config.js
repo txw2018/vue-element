@@ -1,4 +1,5 @@
 const path = require('path')
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 const isProd = process.env.NODE_ENV === 'production'
 module.exports = {
   publicPath: isProd ? '/dist/' : '/',
@@ -76,6 +77,9 @@ module.exports = {
           return args
         })
     }
+    config
+      .plugin('webpack-bundle-analyzer')
+      .use(BundleAnalyzerPlugin)
   },
   css: {
     loaderOptions: {

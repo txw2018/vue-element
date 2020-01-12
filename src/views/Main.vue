@@ -1,17 +1,17 @@
 <template>
- <el-container>
-  <el-aside width="auto">
-    <Menus></Menus>
-  </el-aside>
   <el-container>
-    <el-header>
-     <xx-header></xx-header>
-    </el-header>
-    <el-main>
-      <router-view></router-view>
-    </el-main>
+    <el-aside width="auto">
+      <Menus></Menus>
+    </el-aside>
+    <el-container>
+      <el-header>
+        <xx-header></xx-header>
+      </el-header>
+      <el-main>
+        <router-view></router-view>
+      </el-main>
+    </el-container>
   </el-container>
-</el-container>
 </template>
 
 <script>

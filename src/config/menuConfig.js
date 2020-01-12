@@ -27,7 +27,7 @@ export default [
         icon: 'draggable'
       },
       {
-        name: 'codepen在线编辑器',
+        name: 'codepen编辑器',
         path: '/components/codepen',
         icon: 'bianji'
       },
@@ -43,5 +43,4 @@ export default [
       }
     ]
   }
-
 ]
