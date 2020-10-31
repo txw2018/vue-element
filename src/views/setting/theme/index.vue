@@ -34,7 +34,9 @@ export default {
     ...mapGetters(['getTheme'])
   },
 
-  mounted () {},
+  mounted () {
+    console.log(this)
+  },
 
   methods: {
     ...mapActions(['THEME']),
