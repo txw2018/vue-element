@@ -4,10 +4,10 @@
   </div>
 </template>
 <script>
-import { mapActions, mapGetters } from 'vuex'
 import { theme } from '~styles/theme'
 import { LocalStorage } from '~utils/index'
-
+import { createNamespacedHelpers } from 'vuex'
+const { mapGetters, mapActions } = createNamespacedHelpers('setting')
 export default {
   computed: {
     ...mapGetters(['getTheme'])

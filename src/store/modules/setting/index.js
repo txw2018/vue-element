@@ -3,6 +3,7 @@ const types = {
   THEME: 'THEME'
 }
 export default {
+  namespaced: true,
   state: {
     [types.THEME]: {
       PC_theme_color: '#3194d0',

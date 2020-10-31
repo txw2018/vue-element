@@ -14,9 +14,12 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex'
+import { createNamespacedHelpers } from 'vuex'
+
 import { LocalStorage } from '~utils/index'
 import { theme } from '~styles/theme'
+const { mapGetters, mapActions } = createNamespacedHelpers('setting')
+
 export default {
   name: 'theme',
   data () {
@@ -29,7 +32,6 @@ export default {
 
   computed: {
     ...mapGetters(['getTheme'])
-
   },
 
   mounted () {},
